@@ -13,6 +13,7 @@
   <rowConstraints>
       <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="ALWAYS" />
     <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
     <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
     <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
       <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
@@ -38,7 +39,13 @@
          <font>
             <Font size="14.0" />
          </font></Label>
-      <Label layoutX="10.0" layoutY="69.0" text="Επιλογή:" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+      <Label text="Περίοδος:" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+         <GridPane.margin>
+            <Insets right="30.0" />
+         </GridPane.margin>
+      </Label>
+      <Label fx:id="periodFld" text="_____" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <Label layoutX="10.0" layoutY="69.0" text="Επιλογή:" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
          <GridPane.margin>
             <Insets right="30.0" />
          </GridPane.margin>
@@ -46,12 +53,12 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="resultFld" text="____" GridPane.columnIndex="1" GridPane.rowIndex="2">
+      <Label fx:id="resultFld" text="_____" GridPane.columnIndex="1" GridPane.rowIndex="3">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
          <children>
             <Button mnemonicParsing="false" onAction="#submitVote" text="Υποβολή">
                <HBox.margin>
@@ -61,7 +68,7 @@
             <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onCancel" text="Ακύρωση" />
          </children>
       </HBox>
-      <HBox alignment="CENTER" layoutX="310.0" layoutY="144.0" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+      <HBox alignment="CENTER" layoutX="310.0" layoutY="144.0" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
          <children>
             <RadioButton fx:id="radioYes" mnemonicParsing="false" text="ΝΑΙ">
                <HBox.margin>
@@ -81,7 +88,7 @@
             </RadioButton>
          </children>
       </HBox>
-      <Label text="Αποτέλεσμα Ψηφοφορίας:" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+      <Label text="Αποτέλεσμα Ψηφοφορίας:" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
          <font>
             <Font size="14.0" />
          </font>
@@ -106,7 +113,7 @@
             </Button>
          </children>
       </HBox>
-      <ProgressIndicator fx:id="progressIndicator" visible="false" GridPane.halignment="RIGHT" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+      <ProgressIndicator fx:id="progressIndicator" visible="false" GridPane.halignment="RIGHT" GridPane.rowIndex="5" GridPane.valignment="CENTER">
          <GridPane.margin>
             <Insets />
          </GridPane.margin>

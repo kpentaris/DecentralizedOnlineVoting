@@ -16,6 +16,10 @@ import javafx.scene.control.*;
 
 import java.awt.*;
 import java.awt.datatransfer.StringSelection;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.time.temporal.ChronoField;
+import java.util.Date;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -28,6 +32,7 @@ public class VotingController {
   public RadioButton radioYes;
   public RadioButton radioNo;
   public Label titleFld;
+  public Label periodFld;
   public Label resultFld;
   public ToggleGroup choiceRadioGroup;
   public Label uidFld;
@@ -46,7 +51,23 @@ public class VotingController {
     votingService = ServicesContext.get(VotingService.class);
     uidFld.setText(votingService.getUID());
     titleFld.setText(election.getTitle());
+    periodFld.setText(generateVotingPeriodStr(election.getVotingStart(), election.getVotingEnd()));
     startPollingForEndVote();
+  }
+
+  private static String generateVotingPeriodStr(long start, long end) {
+    Date startD = new Date(start * 1000);
+    Date endD = new Date(end * 1000);
+    final ZonedDateTime startZDT = startD.toInstant().atZone(ZoneId.systemDefault());
+    final int startDay = startZDT.get(ChronoField.DAY_OF_MONTH);
+    final int startMonth = startZDT.get(ChronoField.MONTH_OF_YEAR);
+    final int startYear = startZDT.get(ChronoField.YEAR);
+    final ZonedDateTime endZDT = endD.toInstant().atZone(ZoneId.systemDefault());
+    final int endDay = endZDT.get(ChronoField.DAY_OF_MONTH);
+    final int endMonth = endZDT.get(ChronoField.MONTH_OF_YEAR);
+    final int endYear = endZDT.get(ChronoField.YEAR);
+
+    return startDay + "/" + startMonth + "/" + startYear + " - " + endDay + "/" + endMonth + "/" + endYear;
   }
 
   public void submitVote(ActionEvent event) throws Exception {
