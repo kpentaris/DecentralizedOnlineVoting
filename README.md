@@ -7,7 +7,5 @@ The blockchain protocol uses a combination of:
  * Customized non-interactive proof of validity;
  * Secure multi-party computation based on Shamir secret sharing;
  * PKI based digital signatures;
-
-A partial video of the project presentation (in Greek) can be found here: https://www.youtube.com/watch?v=byWz3fFJiu4
  
 #### Key words: cryptography, encryption, blockchain, e-voting, smart contracts
